@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <title>Namita Dave | Portfolio</title>
+
+    <style>
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        :root {
+            --bg-color: #f5f5f0;
+            --text-color: #1d2421;
+            --card-color: #ffffff;
+            --secondary-text: #68716c;
+            --border-color: #dfe3df;
+            --section-color: #ecefe9;
+
+            --navbar-color: rgba(245, 245, 240, 0.92);
+
+            --primary: #176b5b;
+            --primary-dark: #0f5144;
+            --accent-soft: #dcece6;
+
+            --hero-color: #e9eee8;
+        }
+
+        [data-theme="dark"] {
+
+            --bg-color: #101513;
+            --text-color: #edf2ef;
+            --card-color: #171d1a;
+            --secondary-text: #a9b4ae;
+            --border-color: #2b3530;
+            --section-color: #141a17;
+
+            --navbar-color: rgba(16, 21, 19, 0.94);
+
+            --primary: #70b9a7;
+            --primary-dark: #8bc9b8;
+            --accent-soft: #203c34;
+
+            --hero-color: #151d19;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .text-secondary {
+            color: var(--secondary-text) !important;
+        }
+
+        .border {
+            border-color: var(--border-color) !important;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: var(--navbar-color);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border-color);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            transition: 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: var(--text-color) !important;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1.35rem;
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: var(--primary);
+        }
+
+        .navbar .nav-link {
+            color: var(--secondary-text);
+
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            margin-left: 14px;
+
+            transition: 0.25s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .navbar-toggler {
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .navbar-toggler {
+            border-color: #ffffff;
+        }
+
+        [data-theme="dark"] .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 6px;
+
+            margin-left: 18px;
+        }
+
+        .theme-buttons button {
+            border-radius: 50%;
+
+            width: 35px;
+            height: 35px;
+
+            padding: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border-color);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #home {
+            min-height: calc(100vh - 65px);
+
+            display: flex;
+            align-items: center;
+
+            background: var(--hero-color);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        #home::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(23, 107, 91, 0.15);
+
+            right: -180px;
+            top: -180px;
+        }
+
+        #home::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            background: var(--accent-soft);
+
+            left: -120px;
+            bottom: -120px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-small {
+
+            color: var(--primary);
+
+            font-size: 0.8rem;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: clamp(4rem, 9vw, 7.5rem);
+
+            line-height: 0.9;
+
+            letter-spacing: -6px;
+
+            font-weight: 700;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+
+            font-size: 1.25rem;
+
+            font-weight: 500;
+
+            color: var(--secondary-text);
+
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+
+            max-width: 620px;
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+
+            color: var(--secondary-text);
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons .btn {
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: 0.25s ease;
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-side {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding-left: 50px;
+        }
+
+        .hero-side-line {
+
+            width: 70px;
+            height: 2px;
+
+            background: var(--primary);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-side-text {
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 1.35rem;
+
+            line-height: 1.5;
+
+            max-width: 300px;
+
+            color: var(--text-color);
+        }
+
+        .hero-side-small {
+
+            margin-top: 25px;
+
+            color: var(--secondary-text);
+
+            font-size: 0.85rem;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            position: relative;
+        }
+
+        .section-heading {
+
+            max-width: 700px;
+
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+
+            color: var(--primary);
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+
+            font-weight: 700;
+
+            letter-spacing: -1.5px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        #about {
+            background: var(--bg-color);
+        }
+
+        .about-main {
+            padding-right: 50px;
+        }
+
+        .about-main h2 {
+
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+
+            font-weight: 700;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .about-main p {
+
+            color: var(--secondary-text);
+
+            line-height: 1.8;
+        }
+
+        .about-feature {
+
+            height: 100%;
+
+            padding: 25px;
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            transition: 0.25s ease;
+        }
+
+        .about-feature:hover {
+
+            transform: translateY(-4px);
+
+            border-color: var(--primary);
+        }
+
+        .feature-number {
+
+            color: var(--primary);
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .about-feature h3 {
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .about-feature p {
+
+            color: var(--secondary-text);
+
+            font-size: 0.9rem;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        #skills {
+            background: var(--section-color);
+        }
+
+        .skill-card {
+
+            height: 100%;
+
+            padding: 30px;
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            transition: 0.25s ease;
+        }
+
+        .skill-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: var(--primary);
+        }
+
+        .skill-number {
+
+            color: var(--primary);
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+
+            font-size: 1.15rem;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .skill-badge {
+
+            display: inline-block;
+
+            padding: 7px 11px;
+
+            margin: 0 5px 7px 0;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 6px;
+
+            color: var(--secondary-text);
+
+            font-size: 0.8rem;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        #projects {
+            background: var(--bg-color);
+        }
+
+        .project-card {
+
+            height: 100%;
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            transition: 0.25s ease;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: var(--primary);
+
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-category {
+
+            color: var(--primary);
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+
+            font-size: 1.3rem;
+
+            font-weight: 700;
+
+            margin-bottom: 14px;
+        }
+
+        .project-card p {
+
+            color: var(--secondary-text);
+
+            font-size: 0.92rem;
+
+            line-height: 1.75;
+        }
+
+        .project-link {
+
+            margin-top: auto;
+
+            padding-top: 25px;
+        }
+
+        .project-link .btn {
+
+            border-radius: 7px;
+
+            font-weight: 600;
+        }
+
+        /* =========================
+   CERTIFICATES
+========================= */
+
+        #certificates {
+            background: var(--bg-color);
+        }
+
+        .certificate-card {
+
+            height: 100%;
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            transition: 0.25s ease;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .certificate-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: var(--primary);
+
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .certificate-category {
+
+            color: var(--primary);
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .certificate-card h3 {
+
+            font-size: 1.3rem;
+
+            font-weight: 700;
+
+            margin-bottom: 14px;
+        }
+
+        .certificate-card p {
+
+            color: var(--secondary-text);
+
+            font-size: 0.92rem;
+
+            line-height: 1.75;
+        }
+
+        .certificate-link {
+
+            margin-top: auto;
+
+            padding-top: 25px;
+        }
+
+        .certificate-link .btn {
+
+            border-radius: 7px;
+
+            font-weight: 600;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        #education {
+            background: var(--section-color);
+        }
+
+        .education-card {
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+        }
+
+        .education-header {
+
+            padding: 35px;
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .education-label {
+
+            color: var(--primary);
+
+            font-size: 0.75rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .education-header h3 {
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            margin-top: 12px;
+        }
+
+        .education-details {
+
+            padding: 30px 35px;
+        }
+
+        .education-detail {
+
+            border-left: 2px solid var(--primary);
+
+            padding-left: 15px;
+        }
+
+        .education-detail small {
+
+            color: var(--secondary-text);
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        #contact {
+            background: var(--bg-color);
+        }
+
+        .contact-card {
+
+            height: 100%;
+
+            background: var(--card-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 14px;
+
+            padding: 35px;
+        }
+
+        .contact-card h3 {
+
+            font-size: 1.35rem;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-top: 25px;
+        }
+
+        .contact-label {
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: var(--secondary-text);
+
+            margin-bottom: 7px;
+        }
+
+        .contact-link {
+
+            color: var(--text-color);
+
+            text-decoration: none;
+
+            word-break: break-word;
+
+            transition: 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+        }
+
+        .social-buttons .btn {
+
+            border-radius: 7px;
+
+            font-weight: 600;
+        }
+
+        .form-control {
+
+            background: var(--bg-color);
+
+            color: var(--text-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 7px;
+
+            padding: 11px 13px;
+        }
+
+        .form-control:focus {
+
+            background: var(--bg-color);
+
+            color: var(--text-color);
+
+            border-color: var(--primary);
+
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: var(--secondary-text);
+        }
+
+        .form-label {
+
+            font-size: 0.85rem;
+
+            font-weight: 600;
+        }
+
+        .send-button {
+
+            border-radius: 7px;
+
+            padding: 11px 22px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           SUCCESS POPUP
+        ========================= */
+
+        .success-popup {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+
+            z-index: 9999;
+        }
+
+        .success-popup.show {
+
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .success-popup-content {
+
+            width: 90%;
+
+            max-width: 420px;
+
+            padding: 40px 30px;
+
+            background: var(--card-color);
+
+            color: var(--text-color);
+
+            border-radius: 16px;
+
+            text-align: center;
+
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+
+            transform: scale(0.85);
+
+            transition: transform 0.3s ease;
+        }
+
+        .success-popup.show .success-popup-content {
+
+            transform: scale(1);
+        }
+
+        .success-icon {
+
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 34px;
+
+            font-weight: bold;
+        }
+
+        .success-popup-content p {
+
+            color: var(--secondary-text);
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: var(--card-color);
+
+            border-top: 1px solid var(--border-color);
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        [data-theme="dark"] .btn-outline-dark {
+
+            color: #edf2ef;
+
+            border-color: #46504b;
+        }
+
+        [data-theme="dark"] .btn-outline-dark:hover {
+
+            background-color: #edf2ef;
+
+            color: #101513;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 991px) {
+
+            .navbar .nav-link {
+
+                margin-left: 0;
+
+                padding: 10px 0;
+            }
+
+            .theme-buttons {
+
+                margin: 10px 0;
+            }
+
+            .hero-side {
+
+                padding-left: 0;
+
+                margin-top: 25px;
+            }
+
+            .hero-title {
+
+                letter-spacing: -4px;
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            .hero-title {
+
+                font-size: 4rem;
+
+                letter-spacing: -3px;
+            }
+
+            .hero-subtitle {
+
+                font-size: 1.05rem;
+            }
+
+            .hero-description {
+
+                font-size: 0.92rem;
+            }
+
+            .about-main {
+
+                padding-right: 0;
+            }
+
+            .contact-card {
+
+                padding: 25px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav id="navbar" class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+                Namita<span>.</span>
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">
+                            Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">
+                            Certificates
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item theme-buttons">
+
+                        <button id="lightMode" class="btn btn-light btn-sm" title="Light Mode">
+
+                            ☀
+
+                        </button>
+
+                        <button id="darkMode" class="btn btn-secondary btn-sm" title="Dark Mode">
+
+                            ☾
+
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section id="home">
+
+        <div class="container py-5">
+
+            <div class="row align-items-center g-5">
+
+
+                <div class="col-lg-8 hero-content">
+
+                    <p class="hero-small">
+                        Computer Engineering Student
+                    </p>
+
+
+                    <h1 class="hero-title">
+
+                        Namita
+                        <br>
+
+                        <span>Dave.</span>
+
+                    </h1>
+
+
+                    <h2 class="hero-subtitle">
+
+                        Developer • Problem Solver • Learner
+
+                    </h2>
+
+
+                    <p class="hero-description">
+
+                        I build practical software projects and enjoy
+                        solving problems through technology. I am currently
+                        exploring web development, Python, Java and software
+                        engineering.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary me-2">
+
+                            View My Work →
+
+                        </a>
+
+
+                        <a href="#contact" class="btn btn-outline-dark">
+
+                            Contact Me
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4">
+
+                    <div class="hero-side">
+
+                        <div class="hero-side-line"></div>
+
+                        <p class="hero-side-text">
+
+                            Learning by building,
+                            one project at a time.
+
+                        </p>
+
+                        <p class="hero-side-small">
+
+                            Software development ·
+                            Problem solving ·
+                            Web technologies
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="row g-5 align-items-center">
+
+
+                <div class="col-lg-6 about-main">
+
+                    <p class="section-label">
+                        About Me
+                    </p>
+
+                    <h2>
+                        Turning ideas into practical solutions.
+                    </h2>
+
+                    <p class="lead">
+
+                        I am a Computer Engineering student interested in
+                        software development, problem solving and building
+                        practical applications.
+
+                    </p>
+
+                    <p>
+
+                        I enjoy learning new technologies and applying them
+                        through academic projects and personal experiments.
+                        My goal is to continuously improve my technical skills
+                        while building useful and reliable software.
+
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="row g-3">
+
+
+                        <div class="col-sm-6">
+
+                            <div class="about-feature">
+
+                                <div class="feature-number">
+                                    01
+                                </div>
+
+                                <h3>
+                                    Problem Solving
+                                </h3>
+
+                                <p class="mb-0">
+
+                                    Interested in algorithms, data structures
+                                    and logical problem solving.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-6">
+
+                            <div class="about-feature">
+
+                                <div class="feature-number">
+                                    02
+                                </div>
+
+                                <h3>
+                                    Development
+                                </h3>
+
+                                <p class="mb-0">
+
+                                    Building web and software projects while
+                                    exploring different technologies.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-6">
+
+                            <div class="about-feature">
+
+                                <div class="feature-number">
+                                    03
+                                </div>
+
+                                <h3>
+                                    Learning
+                                </h3>
+
+                                <p class="mb-0">
+
+                                    Continuously learning through projects,
+                                    coursework and experimentation.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-sm-6">
+
+                            <div class="about-feature">
+
+                                <div class="feature-number">
+                                    04
+                                </div>
+
+                                <h3>
+                                    Technology
+                                </h3>
+
+                                <p class="mb-0">
+
+                                    Exploring web development, programming
+                                    and modern software tools.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="section-heading text-center">
+
+                <p class="section-label">
+                    Skills
+                </p>
+
+                <h2 class="section-title">
+                    Technologies I Work With
+                </h2>
+
+                <p class="text-secondary mt-3">
+
+                    A growing set of technologies and concepts I use
+                    while learning and building projects.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6">
+
+                    <div class="skill-card">
+
+                        <div class="skill-number">
+                            01 / PROGRAMMING
+                        </div>
+
+                        <h3>
+                            Programming
+                        </h3>
+
+                        <span class="skill-badge">C</span>
+
+                        <span class="skill-badge">Python</span>
+
+                        <span class="skill-badge">Java</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="skill-card">
+
+                        <div class="skill-number">
+                            02 / WEB
+                        </div>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <span class="skill-badge">HTML</span>
+
+                        <span class="skill-badge">CSS</span>
+
+                        <span class="skill-badge">Bootstrap</span>
+
+                        <span class="skill-badge">JavaScript</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="skill-card">
+
+                        <div class="skill-number">
+                            03 / CONCEPTS
+                        </div>
+
+                        <h3>
+                            Core Concepts
+                        </h3>
+
+                        <span class="skill-badge">
+                            Data Structures
+                        </span>
+
+                        <span class="skill-badge">
+                            Algorithms
+                        </span>
+
+                        <span class="skill-badge">
+                            DBMS
+                        </span>
+
+                        <span class="skill-badge">
+                            Computer Networks
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="skill-card">
+
+                        <div class="skill-number">
+                            04 / TOOLS
+                        </div>
+
+                        <h3>
+                            Tools & Platforms
+                        </h3>
+
+                        <span class="skill-badge">
+                            Git
+                        </span>
+
+                        <span class="skill-badge">
+                            GitHub
+                        </span>
+
+                        <span class="skill-badge">
+                            VS Code
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="section-heading text-center">
+
+                <p class="section-label">
+                    Projects
+                </p>
+
+                <h2 class="section-title">
+                    Things I've Built
+                </h2>
+
+                <p class="text-secondary mt-3">
+
+                    A selection of academic and personal projects
+                    developed while learning and experimenting with technology.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6">
+
+                    <div class="project-card">
+
+                        <div class="project-category">
+                            C / DSA
+                        </div>
+
+                        <h3>
+                            Movie Theatre Booking System
+                        </h3>
+
+                        <p>
+
+                            A reservation system designed to manage movie
+                            theatre bookings and seat reservations using
+                            programming and data structure concepts.
+
+                        </p>
+
+                        <div class="project-link">
+
+                            <a href="https://github.com/NamitaDave/Movie-Booking-System" target="_blank"
+                                class="btn btn-outline-dark">
+
+                                View Project →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="project-card">
+
+                        <div class="project-category">
+                            Python / Flask
+                        </div>
+
+                        <h3>
+                            Task Management Application
+                        </h3>
+
+                        <p>
+
+                            A Flask-based task application that allows
+                            users to create and manage tasks using a simple
+                            web interface and SQLite database.
+
+                        </p>
+
+                        <div class="project-link">
+
+                            <a href="https://github.com/NamitaDave/my_first_web_app" target="_blank"
+                                class="btn btn-outline-dark">
+
+                                View Project →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="project-card">
+
+                        <div class="project-category">
+                            Java
+                        </div>
+
+                        <h3>
+                            Java Chat Application
+                        </h3>
+
+                        <p>
+
+                            A Java-based chat application created to
+                            explore socket communication and client-server
+                            interaction.
+
+                        </p>
+
+                        <div class="project-link">
+
+                            <a href="https://github.com/NamitaDave/Java-Chat-Application" target="_blank"
+                                class="btn btn-outline-dark">
+
+                                View Project →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="project-card">
+
+                        <div class="project-category">
+                            HTML / CSS / JavaScript
+                        </div>
+
+                        <h3>
+                            Google Clone
+                        </h3>
+
+                        <p>
+
+                            A front-end recreation inspired by the Google
+                            search interface, built to practice web
+                            development and responsive page design.
+
+                        </p>
+
+                        <div class="project-link">
+
+                            <a href="https://github.com/NamitaDave/Google_Clone" target="_blank"
+                                class="btn btn-outline-dark">
+
+                                View Project →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+     CERTIFICATES
+========================= -->
+
+    <section id="certificates" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="section-heading text-center">
+
+                <p class="section-label">
+                    Certificates
+                </p>
+
+                <h2 class="section-title">
+                    Courses & Certifications
+                </h2>
+
+                <p class="text-secondary mt-3">
+
+                    Certifications and courses completed while
+                    developing my programming and software skills.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <!-- Certificate 1 -->
+
+                <div class="col-md-6">
+
+                    <div class="certificate-card">
+
+                        <div class="certificate-category">
+                            Udemy / Python
+                        </div>
+
+                        <h3>
+                            100 Days of Code: The Complete Python Pro Bootcamp
+                        </h3>
+
+                        <p>
+
+                            A comprehensive Python course covering programming
+                            fundamentals, automation, web development, APIs,
+                            databases and practical Python projects.
+
+                        </p>
+
+                        <div class="certificate-link">
+
+                            <a href="https://www.udemy.com/certificate/UC-3f3b8e1c-2360-41bc-b0de-5e7149aec225/"
+                                target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+
+                                View Certificate →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Certificate 2 -->
+
+                <div class="col-md-6">
+
+                    <div class="certificate-card">
+
+                        <div class="certificate-category">
+                            Udemy / Python
+                        </div>
+
+                        <h3>
+                            300+ Python Exercises (Simple, Intermediate & Complex)
+                        </h3>
+
+                        <p>
+
+                            A Python practice course focused on solving
+                            300+ programming exercises ranging from simple
+                            problems to intermediate and complex challenges.
+
+                        </p>
+
+                        <div class="certificate-link">
+
+                            <a href="https://www.udemy.com/certificate/UC-6c62f21c-e98e-47bf-a784-1f4c3d83b736/"
+                                target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+
+                                View Certificate →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="education" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="section-heading text-center">
+
+                <p class="section-label">
+                    Education
+                </p>
+
+                <h2 class="section-title">
+                    My Academic Journey
+                </h2>
+
+                <p class="text-secondary mt-3">
+
+                    My education and academic background in computer engineering.
+
+                </p>
+
+            </div>
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-9">
+
+                    <div class="education-card">
+
+
+                        <div class="education-header">
+
+                            <div class="education-label">
+                                Bachelor's Degree
+                            </div>
+
+                            <h3>
+                                Bachelor of Technology in Computer Engineering
+                            </h3>
+
+                            <p class="mb-1">
+                                Indus University
+                            </p>
+
+                            <p class="text-secondary mb-0">
+                                Institute of Technology & Engineering
+                            </p>
+
+                        </div>
+
+
+                        <div class="education-details">
+
+                            <div class="row g-4">
+
+
+                                <div class="col-sm-4">
+
+                                    <div class="education-detail">
+
+                                        <small>
+                                            Current Level
+                                        </small>
+
+                                        <strong>
+                                            Third Year
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-sm-4">
+
+                                    <div class="education-detail">
+
+                                        <small>
+                                            Semester
+                                        </small>
+
+                                        <strong>
+                                            V Semester
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-sm-4">
+
+                                    <div class="education-detail">
+
+                                        <small>
+                                            Field
+                                        </small>
+
+                                        <strong>
+                                            Computer Engineering
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="py-5">
+
+        <div class="container py-5">
+
+            <div class="section-heading text-center">
+
+                <p class="section-label">
+                    Contact
+                </p>
+
+                <h2 class="section-title">
+                    Let's Connect
+                </h2>
+
+                <p class="text-secondary mt-3">
+
+                    Have a question, project idea, or opportunity?
+                    Feel free to get in touch.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-5">
+
+                    <div class="contact-card">
+
+                        <h3>
+                            Get In Touch
+                        </h3>
+
+                        <p class="text-secondary">
+
+                            I am always interested in learning,
+                            collaborating on projects, and exploring
+                            opportunities in software development.
+
+                        </p>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-label">
+                                Email
+                            </div>
+
+                            <a href="mailto:namitadave.24.cse@iite.indusuni.ac.in" class="contact-link">
+
+                                namitadave.24.cse@iite.indusuni.ac.in
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-label">
+                                Location
+                            </div>
+
+                            <p class="text-secondary mb-0">
+
+                                Ahmedabad, Gujarat, India
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-label">
+                                Profiles
+                            </div>
+
+                            <div class="social-buttons">
+
+                                <a href="https://github.com/NamitaDave" target="_blank"
+                                    class="btn btn-outline-dark btn-sm me-2">
+
+                                    GitHub
+
+                                </a>
+
+
+                                <a href="https://www.linkedin.com/in/namita-dave-861362321/" target="_blank"
+                                    class="btn btn-outline-primary btn-sm">
+
+                                    LinkedIn
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-7">
+
+                    <div class="contact-card">
+
+                        <h3>
+                            Send a Message
+                        </h3>
+
+
+                        <form id="contactForm" action="https://formsubmit.co/ajax/namitadave.24.cse@iite.indusuni.ac.in"
+                            method="POST">
+
+
+                            <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+
+
+                            <input type="hidden" name="_template" value="table">
+
+
+                            <input type="hidden" name="_captcha" value="false">
+
+
+                            <div class="row g-3">
+
+
+                                <div class="col-md-6">
+
+                                    <label for="name" class="form-label">
+
+                                        Name
+
+                                    </label>
+
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Your name" required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label for="email" class="form-label">
+
+                                        Email
+
+                                    </label>
+
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="you@example.com" required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <label for="subject" class="form-label">
+
+                                        Subject
+
+                                    </label>
+
+                                    <input type="text" class="form-control" id="subject" name="subject"
+                                        placeholder="What would you like to discuss?" required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <label for="message" class="form-label">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea class="form-control" id="message" name="message" rows="5"
+                                        placeholder="Write your message..." required></textarea>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <button type="submit" id="submitButton" class="btn btn-primary send-button">
+
+                                        Send Message
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SUCCESS POPUP
+    ========================= -->
+
+    <div id="successPopup" class="success-popup">
+
+
+        <div class="success-popup-content">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h3>
+                Message Delivered!
+            </h3>
+
+            <p>
+
+                Thank you for reaching out.
+                Your message has been sent successfully.
+
+            </p>
+
+            <button type="button" id="closePopup" class="btn btn-primary">
+
+                Done
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p class="mb-2 fw-semibold">
+                © 2026 Namita Dave
+            </p>
+
+            <p class="mb-0 text-secondary">
+                Computer Engineering Student & Developer
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           DARK / LIGHT MODE
+        ========================= */
+
+        const lightMode =
+            document.getElementById("lightMode");
+
+        const darkMode =
+            document.getElementById("darkMode");
+
+
+        lightMode.addEventListener("click", function () {
+
+            document.documentElement
+                .removeAttribute("data-theme");
+
+        });
+
+
+        darkMode.addEventListener("click", function () {
+
+            document.documentElement
+                .setAttribute("data-theme", "dark");
+
+        });
+
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+        const successPopup =
+            document.getElementById("successPopup");
+
+        const closePopup =
+            document.getElementById("closePopup");
+
+
+        closePopup.addEventListener("click", function () {
+
+            successPopup.classList.remove("show");
+
+        });
+
+
+        contactForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                submitButton.disabled = true;
+
+                submitButton.innerText =
+                    "Sending...";
+
+
+                const formData =
+                    new FormData(contactForm);
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            contactForm.action,
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept": "application/json"
+                                }
+                            }
+                        );
+
+
+                    if (response.ok) {
+
+                        contactForm.reset();
+
+                        submitButton.innerText =
+                            "Message Sent ✓";
+
+                        successPopup.classList
+                            .add("show");
+
+                    }
+
+                    else {
+
+                        alert(
+                            "Something went wrong. Please try again."
+                        );
+
+                    }
+
+
+                }
+
+                catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        "Unable to send the message. Please check your internet connection."
+                    );
+
+                }
+
+
+                setTimeout(function () {
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerText =
+                        "Send Message";
+
+                }, 1500);
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
